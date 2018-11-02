@@ -1,0 +1,14 @@
+{
+  "name": "hangman-game",
+  "version": "0.0.1",
+  "description": "Hangman - a spimple guessing game for one player",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hangman"
+  ],
+  "author": "Dominik Manowski",
+  "license": "ISC"
+}
