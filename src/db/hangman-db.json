@@ -1,0 +1,48 @@
+{
+  "words": [
+    {
+      "word": "banana",
+      "category": "fruit"
+    },
+    {
+      "word": "apple",
+      "category": "fruit"
+    },
+    {
+      "word": "orange",
+      "category": "fruit"
+    },
+    {
+      "word": "potato",
+      "category": "vegetable"
+    },
+    {
+      "word": "tomato",
+      "category": "vegetable"
+    },
+    {
+      "word": "eggplant",
+      "category": "vegetable"
+    },
+    {
+      "word": "banana",
+      "category": "vegetable"
+    },
+    {
+      "word": "courgette",
+      "category": "vegetable"
+    },
+    {
+      "word": "chimpanzee",
+      "category": "animal"
+    },
+    {
+      "word": "seal",
+      "category": "animal"
+    },
+    {
+      "word": "eagle",
+      "category": "animal"
+    }
+  ]
+}
