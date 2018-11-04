@@ -1,0 +1,141 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+.hide {
+  display: none; }
+
+.game-board__input {
+  text-align: inherit;
+  height: 2rem;
+  width: 3rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 1.5rem 4rem rgba(18, 19, 20, 0.15); }
+
+.game-board__submit-btn {
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: #121314;
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  background-color: #F98C01;
+  box-shadow: 0 1.5rem 4rem rgba(18, 19, 20, 0.15); }
+
+.game-board__gallows {
+  height: 12rem;
+  width: 15rem;
+  background-color: rgba(223, 202, 157, 0.1);
+  border: #DFCA9D solid 1px;
+  border-radius: 5px;
+  box-shadow: 0 1.5rem 4rem rgba(18, 19, 20, 0.15);
+  margin: 2rem auto;
+  position: relative;
+  display: none; }
+  @media (min-width: 720px) {
+    .game-board__gallows {
+      display: block; } }
+
+.game-board__gallows-element {
+  position: absolute;
+  border: #DFCA9D solid 1px; }
+  .game-board__gallows-element--1 {
+    width: 10rem;
+    bottom: 0.5rem;
+    left: 2.5rem; }
+  .game-board__gallows-element--2 {
+    height: 10rem;
+    bottom: 0.5rem;
+    left: 3rem; }
+  .game-board__gallows-element--3 {
+    width: 4.5rem;
+    left: 3rem;
+    top: 1.4rem; }
+  .game-board__gallows-element--4 {
+    width: 2.5rem;
+    top: 2.3rem;
+    left: 2.7rem;
+    transform: rotate(-45deg); }
+  .game-board__gallows-element--5, .game-board__gallows-element--7, .game-board__gallows-element--8, .game-board__gallows-element--9, .game-board__gallows-element--10, .game-board__gallows-element--11 {
+    height: 2rem;
+    top: 1.4rem;
+    left: 7.53rem; }
+  .game-board__gallows-element--6 {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border-width: 2px;
+    top: 3.4rem;
+    left: 6.37rem; }
+  .game-board__gallows-element--7 {
+    top: 5.8rem; }
+  .game-board__gallows-element--8, .game-board__gallows-element--9, .game-board__gallows-element--10 {
+    top: 5.8rem;
+    left: 8.2rem;
+    transform: rotate(-40deg); }
+  .game-board__gallows-element--9, .game-board__gallows-element--11 {
+    left: 6.85rem;
+    transform: rotate(40deg); }
+  .game-board__gallows-element--10, .game-board__gallows-element--11 {
+    top: 7.55rem;
+    left: 8.2rem;
+    transform: rotate(-40deg); }
+  .game-board__gallows-element--11 {
+    left: 6.85rem;
+    transform: rotate(40deg); }
+
+body {
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media (min-width: 720px) {
+    body {
+      background-position: center; } }
+
+.game-board {
+  text-align: center;
+  height: 100%;
+  margin: 2.5rem;
+  padding: 1rem 0;
+  border-radius: 5px;
+  background-color: rgba(39, 36, 38, 0.4);
+  box-shadow: 0 1.5rem 4rem rgba(18, 19, 20, 0.15); }
+  .game-board__letters-list {
+    align-items: center;
+    list-style: none; }
+  .game-board__letters {
+    display: inline-block; }
+    .game-board__letters:not(:last-child) {
+      padding-right: 1rem; }
+      @media (max-width: 360px) {
+        .game-board__letters:not(:last-child) {
+          padding-right: 0.5rem; } }
+  .game-board__wrong-letters, .game-board__form {
+    padding-bottom: 1rem; }
+  .game-board__form {
+    display: flex;
+    justify-content: center; }
+
+body {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.7rem;
+  color: #DFCA9D; }
+  @media (max-width: 360px) {
+    body {
+      font-size: 1.4rem; } }
+
+.heading-primary {
+  font-size: 3.5rem; }
+  @media (max-width: 360px) {
+    .heading-primary {
+      font-size: 2rem; } }
