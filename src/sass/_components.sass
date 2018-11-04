@@ -1,0 +1,104 @@
+.game-board
+
+  &__input
+    text-align: inherit
+    height: 2rem
+    width: 3rem
+    font-family: inherit
+    font-size: 1.4rem
+    border: none
+    border-radius: 3px 0 0 3px
+    box-shadow: $default-shadow
+  
+  &__submit-btn
+    font-family: inherit
+    font-size: 1.5rem
+    color: $color-black
+    padding: 0 0.5rem
+    border: none
+    border-radius: 0 3px 3px 0
+    background-color: $color-secondary
+    box-shadow: $default-shadow
+
+  &__gallows
+    height: 12rem
+    width: 15rem
+    background-color: rgba($color-primary, 0.1)
+    border: $color-primary solid 1px
+    border-radius: 5px
+    box-shadow: $default-shadow
+    margin: 2rem auto
+    position: relative
+    display: none
+
+    @media (min-width: 720px)
+      display: block
+
+  &__gallows-element
+    position: absolute
+    border: $color-primary solid 1px
+
+    &--1
+      width: 10rem
+      bottom: 0.5rem
+      left: 2.5rem
+
+    &--2
+      height: 10rem
+      bottom: 0.5rem
+      left: 3rem
+    
+    &--3
+      width: 4.5rem
+      left: 3rem
+      top: 1.4rem
+
+    &--4
+      width: 2.5rem
+      top: 2.3rem
+      left: 2.7rem
+      transform: rotate(-45deg)
+
+    &--5,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11
+      height: 2rem
+      top: 1.4rem
+      left: 7.53rem
+
+    &--6
+      width: 2.5rem
+      height: 2.5rem
+      border-radius: 50%
+      border-width: 2px
+      top: 3.4rem
+      left: 6.37rem
+
+    &--7
+      top: 5.8rem
+    
+    &--8,
+    &--9,
+    &--10
+      top: 5.8rem
+      left: 8.2rem
+      transform: rotate(-40deg)
+
+    &--9,
+    &--11
+      left: 6.85rem
+      transform: rotate(40deg)
+
+
+    &--10,
+    &--11
+      top: 7.55rem
+      left: 8.2rem
+      transform: rotate(-40deg)
+
+    &--11
+      left: 6.85rem
+      transform: rotate(40deg)
