@@ -1,4 +1,3 @@
-// Select elements
 const select = name => document.querySelector(`.game-board__${name}`);
 const hangman = nr => document.querySelector(`.game-board__gallows-element--${nr}`);
 
@@ -11,7 +10,6 @@ const livesDisp = select("lives-value");
 let lettersList = select("letters-list");
 let lettersListElements;
 
-// Define needed variables
 
 let lives = 6;
 let hangmanCount = 6;
@@ -26,13 +24,11 @@ let wrongLettersArr = [];
 
 const wordListURL = "https://hangman-game-823e7.firebaseio.com/list.json";
 
-// Get list word
 
 function getWordList() {
   return fetch(wordListURL).then(res => res.json());
 }
 
-// Randomly pick a word and remove it from wordList
 
 function getRandomWord(list) {
   let randomWord = list.splice([Math.floor(Math.random() * list.length)], 1);
@@ -42,7 +38,6 @@ function getRandomWord(list) {
   return word;
 }
 
-// Create underscores based on picked word length
 
 function displayUnderscores(word) {
   word.forEach(
@@ -59,7 +54,6 @@ function drawHangman(nr){
   hangman(nr).classList.remove("hide")
 }
 
-// Clear board
 
 function clearBoard() {
   lives = 6;
@@ -76,8 +70,6 @@ function clearBoard() {
   }
   hangmanCount = 6;
 }
-
-//Prepare board
 
 function prepareBoard() {
   clearBoard();
@@ -98,7 +90,6 @@ function newRound() {
   prepareBoard();
 })();
 
-// Get and store value from the input
 
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
@@ -110,7 +101,6 @@ submitBtn.addEventListener("click", e => {
   }
 });
 
-// Check if guess is right
 
 function checkGuess() {
   if (word.includes(currentGuess)) {

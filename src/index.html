@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Hangman</title>
+  </head>
+  <body>
+    <div class="game-board">
+      <h1 class="game-board__header heading-primary">Hangman Game</h1>
+      <div class="game-board__gallows">
+        <div class="game-board__gallows-element game-board__gallows-element--1"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--2"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--3"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--4"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--5"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--6 hide"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--7 hide"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--8 hide"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--9 hide"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--10 hide"></div>
+        <div class="game-board__gallows-element game-board__gallows-element--11 hide"></div>
+      </div>
+      <div class="game-board__category">Category:<span class="game-board__category-display"></span></div>
+      <div class="game-board__word-to-guess">
+        <ul class="game-board__letters-list"></ul>
+      </div><span class="game-board__lives">Lives: <span class="game-board__lives-value">6</span></span>
+      <div class="game-board__wrong-letters">Wrong letters:</div>
+      <form class="game-board__form">
+        <input class="game-board__input" type="text"/>
+        <button class="game-board__submit-btn" type="submit">Check</button>
+      </form>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

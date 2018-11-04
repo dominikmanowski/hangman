@@ -1,0 +1,96 @@
+{
+  "list": [
+    {
+      "clue": "matrix",
+      "category": "movie"
+    },
+    {
+      "clue": "braveheart",
+      "category": "movie"
+    },
+    {
+      "clue": "psycho",
+      "category": "movie"
+    },
+    {
+      "clue": "alien",
+      "category": "movie"
+    },
+    {
+      "clue": "batman",
+      "category": "superhero"
+    },
+    {
+      "clue": "superman",
+      "category": "superhero"
+    },
+    {
+      "clue": "deadpool",
+      "category": "superhero"
+    },
+    {
+      "clue": "hulk",
+      "category": "superhero"
+    },
+    {
+      "clue": "pizza",
+      "category": "dish"
+    },
+    {
+      "clue": "spaghetti",
+      "category": "dish"
+    },
+    {
+      "clue": "dumplings",
+      "category": "dish"
+    },
+    {
+      "clue": "soup",
+      "category": "dish"
+    },
+    {
+      "clue": "venus",
+      "category": "planet"
+    },
+    {
+      "clue": "jupiter",
+      "category": "planet"
+    },
+    {
+      "clue": "pluto",
+      "category": "planet"
+    },
+    {
+      "clue": "neptune",
+      "category": "planet"
+    },
+    {
+      "clue": "saturn",
+      "category": "planet"
+    },
+    {
+      "clue": "austria",
+      "category": "country"
+    },
+    {
+      "clue": "brazil",
+      "category": "country"
+    },
+    {
+      "clue": "canada",
+      "category": "country"
+    },
+    {
+      "clue": "france",
+      "category": "country"
+    },
+    {
+      "clue": "italy",
+      "category": "country"
+    },
+    {
+      "clue": "mexico",
+      "category": "planet"
+    }
+  ]
+}

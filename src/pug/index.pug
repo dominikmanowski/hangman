@@ -4,5 +4,32 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet")
+    link(rel="stylesheet", href="style.css")
     title Hangman
   body
+    .game-board
+      h1.game-board__header.heading-primary Hangman Game
+      .game-board__gallows
+        .game-board__gallows-element.game-board__gallows-element--1
+        .game-board__gallows-element.game-board__gallows-element--2
+        .game-board__gallows-element.game-board__gallows-element--3
+        .game-board__gallows-element.game-board__gallows-element--4
+        .game-board__gallows-element.game-board__gallows-element--5
+        .game-board__gallows-element.game-board__gallows-element--6.hide
+        .game-board__gallows-element.game-board__gallows-element--7.hide
+        .game-board__gallows-element.game-board__gallows-element--8.hide
+        .game-board__gallows-element.game-board__gallows-element--9.hide
+        .game-board__gallows-element.game-board__gallows-element--10.hide
+        .game-board__gallows-element.game-board__gallows-element--11.hide
+      .game-board__category Category:
+        span.game-board__category-display
+      .game-board__word-to-guess
+        ul.game-board__letters-list
+      span.game-board__lives Lives: 
+        span.game-board__lives-value 6
+      .game-board__wrong-letters Wrong letters:
+      form.game-board__form
+        input.game-board__input(type="text")
+        button.game-board__submit-btn(type="submit") Check
+    script(src="scripts.js")
