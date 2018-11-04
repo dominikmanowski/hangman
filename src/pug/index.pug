@@ -11,5 +11,9 @@ html(lang="en")
       .game-board__category Category:
         span.game-board__category-display
       .game-board__word-to-guess
-      span.game-board__missed-letters
-      input.game-board-input(type="text")
+        ul.game-board__letters-list
+      .game-board__missed-letters Wrong letters:
+      form
+        input.game-board__input(type="text")
+        button.game-board__submit-btn(type="submit") Check
+    script(src="scripts.js")
