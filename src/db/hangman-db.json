@@ -1,48 +1,96 @@
 {
-  "words": [
+  "list": [
     {
-      "word": "banana",
-      "category": "fruit"
+      "clue": "matrix",
+      "category": "movie"
     },
     {
-      "word": "apple",
-      "category": "fruit"
+      "clue": "braveheart",
+      "category": "movie"
     },
     {
-      "word": "orange",
-      "category": "fruit"
+      "clue": "psycho",
+      "category": "movie"
     },
     {
-      "word": "potato",
-      "category": "vegetable"
+      "clue": "alien",
+      "category": "movie"
     },
     {
-      "word": "tomato",
-      "category": "vegetable"
+      "clue": "batman",
+      "category": "superhero"
     },
     {
-      "word": "eggplant",
-      "category": "vegetable"
+      "clue": "superman",
+      "category": "superhero"
     },
     {
-      "word": "banana",
-      "category": "vegetable"
+      "clue": "deadpool",
+      "category": "superhero"
     },
     {
-      "word": "courgette",
-      "category": "vegetable"
+      "clue": "hulk",
+      "category": "superhero"
     },
     {
-      "word": "chimpanzee",
-      "category": "animal"
+      "clue": "pizza",
+      "category": "dish"
     },
     {
-      "word": "seal",
-      "category": "animal"
+      "clue": "spaghetti",
+      "category": "dish"
     },
     {
-      "word": "eagle",
-      "category": "animal"
+      "clue": "dumplings",
+      "category": "dish"
+    },
+    {
+      "clue": "soup",
+      "category": "dish"
+    },
+    {
+      "clue": "venus",
+      "category": "planet"
+    },
+    {
+      "clue": "jupiter",
+      "category": "planet"
+    },
+    {
+      "clue": "pluto",
+      "category": "planet"
+    },
+    {
+      "clue": "neptune",
+      "category": "planet"
+    },
+    {
+      "clue": "saturn",
+      "category": "planet"
+    },
+    {
+      "clue": "austria",
+      "category": "country"
+    },
+    {
+      "clue": "brazil",
+      "category": "country"
+    },
+    {
+      "clue": "canada",
+      "category": "country"
+    },
+    {
+      "clue": "france",
+      "category": "country"
+    },
+    {
+      "clue": "italy",
+      "category": "country"
+    },
+    {
+      "clue": "mexico",
+      "category": "planet"
     }
   ]
 }
