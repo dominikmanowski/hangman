@@ -1,5 +1,4 @@
 const select = name => document.querySelector(`.game-board__${name}`);
-const hangman = nr => document.querySelector(`.game-board__gallows-element--${nr}`);
 
 const categoryDisp = select("category-display");
 const wordToGuess = select("word-to-guess");
@@ -8,11 +7,11 @@ const input = select("input");
 const submitBtn = select("submit-btn");
 const livesDisp = select("lives-value");
 let lettersList = select("letters-list");
+let gallows = select("gallows");
 let lettersListElements;
 
 
 let lives = 6;
-let hangmanCount = 6;
 
 let wordList;
 let word = [];
@@ -51,7 +50,7 @@ function displayCategory() {
 }
 
 function drawHangman(nr){
-  hangman(nr).classList.remove("hide")
+  gallows.children[nr].classList.remove("hide");
 }
 
 
@@ -65,11 +64,11 @@ function clearBoard() {
   while (lettersList.firstChild) {
     lettersList.removeChild(lettersList.firstChild);
   }
-  for (let i = 6; i < hangmanCount; i++) {
-    hangman(i).classList.add("hide")
+  for (let i = 0; i < lives; i++) {
+    gallows.children[i].classList.add("hide");
   }
-  hangmanCount = 6;
 }
+
 
 function prepareBoard() {
   clearBoard();
@@ -101,7 +100,6 @@ submitBtn.addEventListener("click", e => {
   }
 });
 
-
 function checkGuess() {
   if (word.includes(currentGuess)) {
     word.forEach((letter, i) => {
@@ -115,8 +113,7 @@ function checkGuess() {
     wrongLetters.textContent += ` ${currentGuess.toUpperCase()}`;
     wrongLettersArr.push(currentGuess);
     lives--;
-    drawHangman(hangmanCount)
-    hangmanCount++
+    drawHangman(lives)
     livesDisp.textContent = lives;
     if (lives === 0) {
       setTimeout(() => {
