@@ -10,7 +10,7 @@ body {
   font-size: 62.5%; }
 
 .hide {
-  display: none; }
+  opacity: 0; }
 
 .game-board__input {
   text-align: inherit;
@@ -48,7 +48,8 @@ body {
 
 .game-board__gallows-element {
   position: absolute;
-  border: #DFCA9D solid 1px; }
+  border: #DFCA9D solid 1px;
+  transition: opacity 1s ease-out; }
   .game-board__gallows-element--1 {
     height: 2rem;
     top: 7.55rem;
