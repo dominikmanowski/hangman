@@ -92,10 +92,14 @@ function newRound() {
   prepareBoard();
 })();
 
+function removeWhitespaces(array) {
+  return array.filter(item => item != " ");
+}
+
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
-  if (input.value.length !== 0) {
-    currentGuess = input.value.toLowerCase().split("");
+  if (input.value && input.value.trim()) {
+    currentGuess = removeWhitespaces(input.value.toLowerCase().split(""));
     input.value = "";
     checkGuess();
     input.focus();

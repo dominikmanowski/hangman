@@ -11,6 +11,7 @@ let lettersList = select("letters-list");
 let gallows = select("gallows");
 let lettersListElements;
 
+
 // Define needed variables
 
 let lives = 6;
@@ -46,63 +47,67 @@ function getRandomWord(list) {
 function displayUnderscores(word) {
   word.forEach(
     () => (lettersList.innerHTML += `<li class="game-board__letters">_</li>`)
-  );
-  lettersListElements = document.querySelectorAll(".game-board__letters");
-}
-
-function displayCategory() {
-  categoryDisp.textContent = ` ${category}`;
-}
-
-function drawHangman(nr){
-  gallows.children[nr].classList.remove("hide");
-}
-
-// Clear board
-
-function clearBoard() {
-  lives = 6;
-  livesDisp.textContent = lives;
-  rightGuessCount = 0;
-  rightLettersArr = [];
-  wrongLettersArr = [];
-  wrongLetters.textContent = "Wrong letters:";
-  while (lettersList.firstChild) {
-    lettersList.removeChild(lettersList.firstChild);
+    );
+    lettersListElements = document.querySelectorAll(".game-board__letters");
   }
-  for (let i = 0; i < lives; i++) {
-    gallows.children[i].classList.add("hide");
+  
+  function displayCategory() {
+    categoryDisp.textContent = ` ${category}`;
   }
-}
-
-//Prepare board
-
-function prepareBoard() {
-  clearBoard();
-  getWordList()
+  
+  function drawHangman(nr){
+    gallows.children[nr].classList.remove("hide");
+  }
+  
+  // Clear board
+  
+  function clearBoard() {
+    lives = 6;
+    livesDisp.textContent = lives;
+    rightGuessCount = 0;
+    rightLettersArr = [];
+    wrongLettersArr = [];
+    wrongLetters.textContent = "Wrong letters:";
+    while (lettersList.firstChild) {
+      lettersList.removeChild(lettersList.firstChild);
+    }
+    for (let i = 0; i < lives; i++) {
+      gallows.children[i].classList.add("hide");
+    }
+  }
+  
+  //Prepare board
+  
+  function prepareBoard() {
+    clearBoard();
+    getWordList()
     .then(getRandomWord)
     .then(displayUnderscores)
     .then(displayCategory);
-}
+  }
+  
+  function newRound() {
+    clearBoard();
+    getRandomWord(wordList);
+    displayUnderscores(word);
+    displayCategory();
+  }
+  
+  (() => {
+    prepareBoard();
+  })();
+  
+  function removeWhitespaces(array){
+    return array.filter((item) => item != ' ');
+  }
 
-function newRound() {
-  clearBoard();
-  getRandomWord(wordList);
-  displayUnderscores(word);
-  displayCategory();
-}
-
-(() => {
-  prepareBoard();
-})();
-
-submitBtn.addEventListener("click", e => {
-  e.preventDefault();
-  if (input.value.length !== 0) {
-    currentGuess = input.value.toLowerCase().split('');
-    input.value = "";
-    checkGuess();
-    input.focus();
+  submitBtn.addEventListener("click", e => {
+    e.preventDefault();
+    if (input.value && input.value.trim()) {
+      currentGuess = removeWhitespaces(input.value.toLowerCase().split(''));
+      input.value = "";
+      checkGuess();
+      input.focus();
   }
 });
 
