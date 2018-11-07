@@ -1,6 +1,5 @@
 // Select elements
 const select = name => document.querySelector(`.game-board__${name}`);
-// const hangman = nr => document.querySelector(`.game-board__gallows-element--${nr}`);
 
 const categoryDisp = select("category-display");
 const wordToGuess = select("word-to-guess");
@@ -97,16 +96,15 @@ function newRound() {
   prepareBoard();
 })();
 
-// Resize input if value is longer then 4 characters
-
-// input.addEventListener('change', () => { 
-//   if(input.value.length > 4) {
-//     input.style.width = `${input.value.length + 2}ch`;
-//   } else {
-//     input.removeAttribute("style");
-//   }
-// });
-
+submitBtn.addEventListener("click", e => {
+  e.preventDefault();
+  if (input.value.length !== 0) {
+    currentGuess = input.value.toLowerCase().split('');
+    input.value = "";
+    checkGuess();
+    input.focus();
+  }
+});
 
 // Check if guess is right
 

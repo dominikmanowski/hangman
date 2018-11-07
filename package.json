@@ -17,7 +17,7 @@
     "minify:js": "uglifyjs -c -m -o ./minified/scripts.js -- ./src/scripts.js ",
     "minify:img": "imagemin ./src/img/* --out-dir=minified/img",
     "minify": "npm-run-all minify:html minify:css minify:js minify:img",
-    "build": "npm-run-all build:css build:html compress:img",
+    "build": "npm-run-all build:css build:html beautify:js compress:img",
     "deploy": "gh-pages -d minified"
   },
   "keywords": [

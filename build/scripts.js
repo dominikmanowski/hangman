@@ -95,7 +95,7 @@ function newRound() {
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
   if (input.value.length !== 0) {
-    currentGuess = input.value[0].toLowerCase();
+    currentGuess = input.value.toLowerCase().split("");
     input.value = "";
     checkGuess();
     input.focus();
@@ -103,33 +103,35 @@ submitBtn.addEventListener("click", e => {
 });
 
 function checkGuess() {
-  if (word.includes(currentGuess)) {
-    word.forEach((letter, i) => {
-      if (letter === currentGuess && !rightLettersArr.includes(currentGuess)) {
-        lettersListElements[i].textContent = currentGuess.toUpperCase();
-        rightGuessCount++;
+  currentGuess.forEach(char => {
+    if (word.includes(char)) {
+      word.forEach((letter, i) => {
+        if (letter === char && !rightLettersArr.includes(char)) {
+          lettersListElements[i].textContent = char.toUpperCase();
+          rightGuessCount++;
+        }
+      });
+      rightLettersArr.push(char);
+    } else if (!wrongLettersArr.includes(char)) {
+      wrongLetters.textContent += ` ${char.toUpperCase()}`;
+      wrongLettersArr.push(char);
+      lives--;
+      drawHangman(lives);
+      livesDisp.textContent = lives;
+      if (lives === 0) {
+        setTimeout(() => {
+          if (confirm("You lost. Do you want to play again?")) {
+            newRound();
+          }
+        }, 200);
       }
-    });
-    rightLettersArr.push(currentGuess);
-  } else if (!wrongLettersArr.includes(currentGuess)) {
-    wrongLetters.textContent += ` ${currentGuess.toUpperCase()}`;
-    wrongLettersArr.push(currentGuess);
-    lives--;
-    drawHangman(lives);
-    livesDisp.textContent = lives;
-    if (lives === 0) {
+    }
+    if (rightGuessCount === word.length) {
       setTimeout(() => {
-        if (confirm("You lost. Do you want to play again?")) {
+        if (confirm("You won! Do you want to play again?")) {
           newRound();
         }
       }, 200);
     }
-  }
-  if (rightGuessCount === word.length) {
-    setTimeout(() => {
-      if (confirm("You won! Do you want to play again?")) {
-        newRound();
-      }
-    }, 200);
-  }
+  });
 }
