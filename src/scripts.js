@@ -78,13 +78,13 @@ function displayUnderscores(word) {
   
   //Prepare board
   
-  function prepareBoard() {
+  (function prepareBoard() {
     clearBoard();
     getWordList()
     .then(getRandomWord)
     .then(displayUnderscores)
     .then(displayCategory);
-  }
+  })();
   
   function newRound() {
     clearBoard();
@@ -92,11 +92,7 @@ function displayUnderscores(word) {
     displayUnderscores(word);
     displayCategory();
   }
-  
-  (() => {
-    prepareBoard();
-  })();
-  
+    
   function removeWhitespaces(array){
     return array.filter((item) => item != ' ');
   }
