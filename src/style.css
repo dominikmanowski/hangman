@@ -103,6 +103,32 @@ body {
     bottom: 0.5rem;
     left: 2.5rem; }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(39, 36, 38, 0.9); }
+
+.popup {
+  width: 80%;
+  padding: 2rem 0;
+  border-radius: 5px;
+  background-color: #eee;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; }
+  .popup__paragraph {
+    display: inline-block;
+    text-align: center;
+    flex-basis: 100%; }
+
 body {
   background-image: url("img/background.jpg");
   background-repeat: no-repeat;

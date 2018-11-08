@@ -25,7 +25,7 @@
     width: 15rem
     background-color: rgba($color-primary, 0.1)
     border: $color-primary solid 1px
-    border-radius: 5px
+    border-radius: $default-radius
     box-shadow: $default-shadow
     margin: 2rem auto
     position: relative
@@ -101,3 +101,32 @@
       width: 10rem
       bottom: 0.5rem
       left: 2.5rem
+
+.overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: rgba($color-tertiary, 0.9)
+  // z-index: -10
+
+.popup
+  width: 80%
+  padding: 2rem 0
+  border-radius: $default-radius
+  background-color: $color-white
+  position: absolute
+  top: 20%
+  left: 50%
+  transform: translateX(-50%)
+
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: center
+
+  &__paragraph
+    display: inline-block
+    text-align: center
+    flex-basis: 100%
