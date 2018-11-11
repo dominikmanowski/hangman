@@ -12,6 +12,16 @@ const submitBtn = select("submit-btn");
 
 const livesDisp = select("lives-value");
 
+const popup = select("popup");
+
+const popupAnswer = select("popup-answer");
+
+const overlay = select("overlay");
+
+const yesBtn = document.querySelector(`button[data-confirm="yes"]`);
+
+const noBtn = document.querySelector(`button[data-confirm="no"]`);
+
 let lettersList = select("letters-list");
 
 let gallows = select("gallows");
@@ -61,6 +71,14 @@ function drawHangman(nr) {
   gallows.children[nr].classList.remove("hide");
 }
 
+function toggleHideClass(node) {
+  node.classList.contains("hide") ? node.classList.remove("hide") : node.classList.add("hide");
+}
+
+function toggleDisableElement(node) {
+  !node.disabled ? node.disabled = true : node.disabled = false;
+}
+
 function clearBoard() {
   lives = 6;
   livesDisp.textContent = lives;
@@ -77,12 +95,14 @@ function clearBoard() {
 }
 
 function prepareBoard() {
-  clearBoard();
   getWordList().then(getRandomWord).then(displayUnderscores).then(displayCategory);
 }
 
 function newRound() {
   clearBoard();
+  toggleHideClass(popup);
+  toggleHideClass(overlay);
+  toggleDisableElement(input);
   getRandomWord(wordList);
   displayUnderscores(word);
   displayCategory();
@@ -102,6 +122,19 @@ submitBtn.addEventListener("click", e => {
   }
 });
 
+yesBtn.addEventListener("click", () => newRound());
+
+noBtn.addEventListener("click", () => {
+  popup.innerHTML = `\n  <p class="game-board__popup-paragraph" style="margin-bottom: 0">Thank you for playing</p>\n  `;
+});
+
+function handlePopup(result) {
+  toggleHideClass(overlay);
+  toggleHideClass(popup);
+  popupAnswer.textContent = word.join("").toUpperCase();
+  result ? popup.children[0].textContent = "Congratulations, you won!" : popup.children[0].textContent = "You lost...";
+}
+
 function checkGuess() {
   currentGuess.forEach(char => {
     if (word.includes(char)) {
@@ -119,19 +152,13 @@ function checkGuess() {
       drawHangman(lives);
       livesDisp.textContent = lives;
       if (lives === 0) {
-        setTimeout(() => {
-          if (confirm("You lost. Do you want to play again?")) {
-            newRound();
-          }
-        }, 200);
+        toggleDisableElement(input);
+        handlePopup(false);
       }
     }
     if (rightGuessCount === word.length) {
-      setTimeout(() => {
-        if (confirm("You won! Do you want to play again?")) {
-          newRound();
-        }
-      }, 200);
+      toggleDisableElement(input);
+      handlePopup(true);
     }
   });
 }

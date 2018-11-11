@@ -31,16 +31,16 @@
       <div class="game-board__wrong-letters">Wrong letters:</div>
       <form class="game-board__form">
         <input class="game-board__input" type="text"/>
-        <button class="game-board__submit-btn btn" type="submit">Check</button>
+        <button class="game-board__submit-btn btn btn--submit" type="submit">Check</button>
       </form>
-    </div>
-    <div class="overlay hide"></div>
-    <div class="popup">
-      <p class="popup__paragraph">Lorem ipsum dolor sit amet.</p>
-      <p class="popup__paragraph">The clue was: <span class="popup__clue">Lorem</span></p>
-      <p class="popup__paragraph">Do you want to play again?</p>
-      <button class="popup__btn popup__btn--yes" data-confirm="yes">Yes</button>
-      <button class="popup__btn popup__btn--no" data-confirm="no">No</button>
+      <div class="game-board__overlay hide"></div>
+      <div class="game-board__popup hide">
+        <p class="game-board__popup-paragraph">Lorem ipsum dolor sit amet.</p>
+        <p class="game-board__popup-paragraph">The right answer is: <span class="game-board__popup-answer">Lorem</span></p>
+        <p class="game-board__popup-paragraph">Do you want to play again?</p>
+        <button class="btn game-board__popup-btn" data-confirm="yes">Yes</button>
+        <button class="btn game-board__popup-btn" data-confirm="no">No</button>
+      </div>
     </div>
     <script src="scripts.js"></script>
   </body>
