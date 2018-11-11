@@ -30,6 +30,14 @@ html(lang="en")
         span.game-board__lives-value 6
       .game-board__wrong-letters Wrong letters:
       form.game-board__form
-        input.game-board__input(type="text")
-        button.game-board__submit-btn(type="submit") Check
+        input.game-board__input(type="text" disabled=false)
+        button.game-board__submit-btn.btn(type="submit").btn--submit Check
+      .game-board__overlay.hide
+      .game-board__popup.hide
+        p.game-board__popup-paragraph Lorem ipsum dolor sit amet.
+        p.game-board__popup-paragraph The right answer is: 
+          span.game-board__popup-answer Lorem
+        p.game-board__popup-paragraph Do you want to play again?
+        button.btn.game-board__popup-btn(data-confirm="yes") Yes
+        button.btn.game-board__popup-btn(data-confirm="no") No
     script(src="scripts.js")
