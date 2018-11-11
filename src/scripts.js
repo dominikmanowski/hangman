@@ -1,4 +1,5 @@
 // Select elements
+
 const select = name => document.querySelector(`.game-board__${name}`);
 
 const categoryDisp = select("category-display");
@@ -7,10 +8,14 @@ const wrongLetters = select("wrong-letters");
 const input = select("input");
 const submitBtn = select("submit-btn");
 const livesDisp = select("lives-value");
+const popup = select("popup");
+const popupAnswer = select("popup-answer");
+const overlay = select("overlay");
+const yesBtn = document.querySelector(`button[data-confirm="yes"]`)
+const noBtn = document.querySelector(`button[data-confirm="no"]`)
 let lettersList = select("letters-list");
 let gallows = select("gallows");
 let lettersListElements;
-
 
 // Define needed variables
 
@@ -47,66 +52,98 @@ function getRandomWord(list) {
 function displayUnderscores(word) {
   word.forEach(
     () => (lettersList.innerHTML += `<li class="game-board__letters">_</li>`)
-    );
-    lettersListElements = document.querySelectorAll(".game-board__letters");
+  );
+  lettersListElements = document.querySelectorAll(".game-board__letters");
+}
+
+function displayCategory() {
+  categoryDisp.textContent = ` ${category}`;
+}
+
+function drawHangman(nr){
+  gallows.children[nr].classList.remove("hide");
+}
+
+function toggleHideClass(node) {
+  node.classList.contains('hide') ?
+    node.classList.remove('hide') :
+    node.classList.add('hide')
+}
+
+function toggleDisableElement(node) {
+  !node.disabled ? node.disabled = true : node.disabled = false;
+}
+
+// Clear board
+
+function clearBoard() {
+  lives = 6;
+  livesDisp.textContent = lives;
+  rightGuessCount = 0;
+  rightLettersArr = [];
+  wrongLettersArr = [];
+  wrongLetters.textContent = "Wrong letters:";
+  while (lettersList.firstChild) {
+    lettersList.removeChild(lettersList.firstChild);
   }
-  
-  function displayCategory() {
-    categoryDisp.textContent = ` ${category}`;
+  for (let i = 0; i < lives; i++) {
+    gallows.children[i].classList.add("hide");
   }
-  
-  function drawHangman(nr){
-    gallows.children[nr].classList.remove("hide");
-  }
-  
-  // Clear board
-  
-  function clearBoard() {
-    lives = 6;
-    livesDisp.textContent = lives;
-    rightGuessCount = 0;
-    rightLettersArr = [];
-    wrongLettersArr = [];
-    wrongLetters.textContent = "Wrong letters:";
-    while (lettersList.firstChild) {
-      lettersList.removeChild(lettersList.firstChild);
-    }
-    for (let i = 0; i < lives; i++) {
-      gallows.children[i].classList.add("hide");
-    }
-  }
-  
-  //Prepare board
-  
-  (function prepareBoard() {
-    clearBoard();
-    getWordList()
+}
+
+//Prepare board
+
+function prepareBoard() {
+  getWordList()
     .then(getRandomWord)
     .then(displayUnderscores)
     .then(displayCategory);
-  })();
-  
-  function newRound() {
-    clearBoard();
-    getRandomWord(wordList);
-    displayUnderscores(word);
-    displayCategory();
-  }
-    
-  function removeWhitespaces(array){
-    return array.filter((item) => item != ' ');
-  }
+}
 
-  submitBtn.addEventListener("click", e => {
-    e.preventDefault();
-    if (input.value && input.value.trim()) {
-      currentGuess = removeWhitespaces(input.value.toLowerCase().split(''));
-      input.value = "";
-      checkGuess();
-      input.focus();
+function newRound() {
+  clearBoard();
+  toggleHideClass(popup);
+  toggleHideClass(overlay);
+  toggleDisableElement(input);
+  getRandomWord(wordList);
+  displayUnderscores(word);
+  displayCategory();
+}
+
+(() => {
+  prepareBoard();
+})();
+
+submitBtn.addEventListener("click", e => {
+  e.preventDefault();
+  if (input.value.length !== 0) {
+    currentGuess = input.value.toLowerCase().split('');
+    input.value = "";
+    checkGuess();
+    input.focus();
   }
 });
 
+// Handle popup
+
+yesBtn.addEventListener("click", () => newRound())
+noBtn.addEventListener("click", () => {
+  popup.innerHTML = `
+  <p class="game-board__popup-paragraph" style="margin-bottom: 0">Thank you for playing</p>
+  `
+})
+
+function handlePopup(result) {
+  toggleHideClass(overlay);
+  toggleHideClass(popup);
+  popupAnswer.textContent = word.join("").toUpperCase();
+  result ? 
+    popup.children[0].textContent = "Congratulations, you won!" :
+    popup.children[0].textContent = "You lost..."
+
+}
+
+  
 // Check if guess is right
 
 function checkGuess() {
@@ -126,19 +163,13 @@ function checkGuess() {
       drawHangman(lives)
       livesDisp.textContent = lives;
       if (lives === 0) {
-        setTimeout(() => {
-          if (confirm("You lost. Do you want to play again?")) {
-            newRound();
-          }
-        }, 200);
+        toggleDisableElement(input)
+        handlePopup(false);
       }
     }
     if (rightGuessCount === word.length) {
-      setTimeout(() => {
-        if (confirm("You won! Do you want to play again?")) {
-          newRound();
-        }
-      }, 200);
+      toggleDisableElement(input)
+      handlePopup(true);
     }
   })
 }
