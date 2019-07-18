@@ -6,6 +6,10 @@
   box-sizing: inherit;
 }
 
+html {
+  min-height: 100vh;
+}
+
 body {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -126,7 +130,7 @@ body {
 }
 
 .game-board__popup {
-  width: 80%;
+  width: 50%;
   padding: 2rem 0;
   border-radius: 5px;
   background-color: #ffffd9;
@@ -185,25 +189,36 @@ body {
 }
 
 body {
-  background-image: url("img/background.jpg");
+  background-image: url("img/background-vertical.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: 50%;
 }
 
 @media (min-width: 720px) {
   body {
-    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("img/background-horizontal.jpg");
   }
 }
 
 .game-board {
   text-align: center;
-  height: 100%;
   margin: 2.5rem;
-  padding: 1rem 0;
+  padding: 3rem 0;
   border-radius: 5px;
   background-color: rgba(18, 19, 20, 0.4);
   box-shadow: 0 1.5rem 4rem rgba(18, 19, 20, 0.15);
+}
+
+@media (min-width: 720px) {
+  .game-board {
+    padding: 3rem 10rem;
+    align-self: center;
+  }
 }
 
 .game-board__letters-list {
