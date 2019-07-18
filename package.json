@@ -6,7 +6,7 @@
   "scripts": {
     "watch:pug": "pug ./src/pug/index.pug -o ./src/ -p index.html -P -w",
     "watch:sass": "node-sass ./src/sass/main.sass ./src/style.css -w",
-    "serve": "browser-sync start --server './src/' --files './src/*.css, './src/index.html -b 'chromium-browser'",
+    "serve": "browser-sync start --server './src/' --files './src/*.css, './src/index.html",
     "start": "npm-run-all --parallel serve watch:pug watch:sass",
     "build:css": "node-sass --output-style=expanded ./src/sass/main.sass ./build/style.css",
     "build:html": "pug ./src/pug/index.pug -o ./build/ -p index.html -P",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gh-pages": "^2.0.1",
-    "imagemin": "^6.0.0",
+    "imagemin": "^7.0.0",
     "node-sass": "^4.9.4",
     "npm-run-all": "^4.1.3",
     "pug": "^2.0.3",
